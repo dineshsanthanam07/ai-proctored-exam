@@ -1,0 +1,26 @@
+<div class="super-admin-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Super Admin</h2>
+    <ul>
+      <li><a routerLink="/super-admin/dashboard">📊 Dashboard</a></li>
+      <li><a routerLink="/super-admin/faculty-management">👨‍🏫 Faculty</a></li>
+      <li><a routerLink="/super-admin/course-management">📚 Courses</a></li>
+      <li><a routerLink="/super-admin/exam-monitoring">📝 Exam Monitoring</a></li>
+      <li><a (click)="logout()">🚪 Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <h3>AI-Enabled Virtual Lab</h3>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
