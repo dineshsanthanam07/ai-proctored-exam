@@ -1,1 +1,20 @@
-<p>course-management works!</p>
+<div class="course-management-container">
+  <div class="header">
+    <h2>Course Management</h2>
+    <button class="add-course-btn" routerLink="/super-admin/add-course">
+      + Add New Course
+    </button>
+  </div>
+  
+  <div class="courses-grid">
+    <div class="course-card" *ngFor="let course of courses">
+      <h3>{{ course.name }}</h3>
+      <p><strong>Course ID:</strong> {{ course.courseId }}</p>
+      <p><strong>Faculty:</strong> {{ course.facultyName }}</p>
+      <p><strong>Created On:</strong> {{ course.createdAt | date:'medium' }}</p>
+      <button class="delete-btn" (click)="course.id && deleteCourse(course.id)">
+        🗑️ Delete
+      </button>
+    </div>
+  </div>
+</div>

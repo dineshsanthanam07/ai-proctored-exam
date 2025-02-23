@@ -1,0 +1,26 @@
+<div class="container">
+    <!-- Left: Coding Question -->
+    <div class="question-panel">
+      <h2>Problem: Sum of Two Numbers</h2>
+      <p>Write a function that returns the sum of two integers.</p>
+      <pre><code>Input: 3, 5
+  Output: 8</code></pre>
+    </div>
+  
+    <!-- Right: Code Editor & Test Cases -->
+    <div class="editor-panel">
+      <div #editor class="editor"></div>
+  
+      <!-- Custom Input -->
+      <textarea [(ngModel)]="customInput" placeholder="Enter custom input..." class="custom-input"></textarea>
+  
+      <button (click)="submitCode()" class="btn-run">Run Code</button>
+  
+      <!-- Output -->
+      <div class="output-panel" *ngIf="output">
+        <h3>Output:</h3>
+        <pre>{{ output }}</pre>
+      </div>
+    </div>
+  </div>
+  

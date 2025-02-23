@@ -6,6 +6,7 @@ import { ExamMonitoringComponent } from './exam-monitoring/exam-monitoring.compo
 import { FacultyManagementComponent } from './faculty-management/faculty-management.component';
 import { SuperAdminComponent } from './super-admin.component';
 import { LoginComponent } from './login/login.component';
+import { AddCourseComponent } from './add-course/add-course.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'faculty-management', component: FacultyManagementComponent },
       { path: 'course-management', component: CourseManagementComponent },
       { path: 'exam-monitoring', component: ExamMonitoringComponent },
+      {path:'add-course', component:AddCourseComponent}
     ]
   },
 ];

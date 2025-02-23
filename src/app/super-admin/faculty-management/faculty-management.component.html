@@ -1,1 +1,23 @@
-<p>faculty-management works!</p>
+<div class="search-container">
+  <input
+    type="text"
+    placeholder="🔍 Search by name or username..."
+    [(ngModel)]="searchQuery"
+    class="search-bar"
+  />
+</div>
+
+<div class="card-container">
+  <div class="faculty-card" *ngFor="let faculty of filteredFaculties()">
+    <h5 class="faculty-name">{{ faculty.name }}</h5>
+    <p class="faculty-username">{{ faculty.username }}</p>
+    <ul class="faculty-details">
+      <li><strong>Email:</strong> {{ faculty.email }}</li>
+      <li><strong>Department:</strong> {{ faculty.department }}</li>
+      <li><strong>Designation:</strong> {{ faculty.designation }}</li>
+    </ul>
+    <button class="btn btn-danger" (click)="deleteFaculty(faculty.id)">
+      ❌ Delete
+    </button>
+  </div>
+</div>

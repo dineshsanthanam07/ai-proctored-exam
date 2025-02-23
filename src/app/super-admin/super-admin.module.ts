@@ -10,6 +10,7 @@ import { SuperAdminComponent } from './super-admin.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AddCourseComponent } from './add-course/add-course.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     CourseManagementComponent,
     ExamMonitoringComponent,
     SuperAdminComponent,
-    LoginComponent
+    LoginComponent,
+    AddCourseComponent
   ],
   imports: [
     CommonModule,

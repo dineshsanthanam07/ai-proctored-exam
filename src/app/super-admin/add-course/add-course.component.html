@@ -1,0 +1,22 @@
+<div class="add-course-container">
+  <h2 class="title">Add New Course</h2>
+  <form class="course-form">
+    <div class="form-group">
+      <input type="text" id="courseId" required />
+      <label for="courseId">Course ID</label>
+    </div>
+    <div class="form-group">
+      <input type="text" id="courseName" required />
+      <label for="courseName">Course Name</label>
+    </div>
+    <div class="form-group">
+      <select id="facultySelect" required>
+        <option value="" disabled selected>Select Faculty</option>
+        <option *ngFor="let faculty of faculties" [value]="faculty.id">
+          {{ faculty.name }}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="add-btn">Add Course</button>
+  </form>
+</div>

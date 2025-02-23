@@ -27,7 +27,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [    "node_modules/ace-builds/src-min/ace.js",
+            "node_modules/ace-builds/src-min/ext-language_tools.js"]
           },
           "configurations": {
             "production": {
