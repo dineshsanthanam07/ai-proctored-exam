@@ -1,26 +1,28 @@
-<div class="container">
-    <!-- Left: Coding Question -->
-    <div class="question-panel">
-      <h2>Problem: Sum of Two Numbers</h2>
-      <p>Write a function that returns the sum of two integers.</p>
-      <pre><code>Input: 3, 5
-  Output: 8</code></pre>
-    </div>
-  
-    <!-- Right: Code Editor & Test Cases -->
-    <div class="editor-panel">
-      <div #editor class="editor"></div>
-  
-      <!-- Custom Input -->
-      <textarea [(ngModel)]="customInput" placeholder="Enter custom input..." class="custom-input"></textarea>
-  
-      <button (click)="submitCode()" class="btn-run">Run Code</button>
-  
-      <!-- Output -->
-      <div class="output-panel" *ngIf="output">
-        <h3>Output:</h3>
-        <pre>{{ output }}</pre>
-      </div>
-    </div>
+<div class="coding-container">
+  <div class="question-section">
+    <h2>Problem Statement</h2>
+    <p>Write a Python program that takes two integers as input and prints their sum.</p>
   </div>
-  
+
+  <div class="editor-section">
+    <select [(ngModel)]="selectedLanguage">
+      <option value="71">Python</option>
+      <option value="63">JavaScript</option>
+      <option value="62">Java</option>
+      <option value="54">C++</option>
+    </select>
+
+    <div #editor class="code-editor"></div>
+
+    <textarea [(ngModel)]="customInput" placeholder="Enter custom input here..." rows="3"></textarea>
+
+    <button (click)="executeCode()">Run with Custom Input</button>
+    <button (click)="validateTestCases()">Submit & Validate Test Cases</button>
+
+    <h3>Output:</h3>
+    <pre>{{ output }}</pre>
+
+    <h3>Test Case Result:</h3>
+    <pre>{{ testCaseResult }}</pre>
+  </div>
+</div>

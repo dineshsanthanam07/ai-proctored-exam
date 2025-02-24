@@ -9,31 +9,60 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CodingTestComponent implements AfterViewInit {
   @ViewChild('editor') private editorRef!: ElementRef;
-  code: string = '// Write your code here...';
+  code: string = '# Write your code here...';
+  selectedLanguage: number = 71; // Default language ID (Python)
   customInput: string = '';
   output: string | null = null;
+  testCaseResult: string | null = null;
 
   constructor(private http: HttpClient) {}
 
   ngAfterViewInit(): void {
     const editor = ace.edit(this.editorRef.nativeElement);
     editor.setTheme('ace/theme/monokai');
-    editor.session.setMode('ace/mode/javascript');
+    editor.session.setMode('ace/mode/python');
     editor.session.on('change', () => {
       this.code = editor.getValue();
     });
   }
 
-  submitCode() {
+  // Function to execute custom input
+  executeCode() {
     const submissionData = {
-      source_code: this.code,
-      language_id: 63, // Language ID for JavaScript in Judge0
-      stdin: this.customInput || ''
+      submission: {
+        sourceCode: this.code,
+        languageId: this.selectedLanguage
+      }
     };
 
-    this.http.post('http://localhost:2358/submissions?base64_encoded=false&wait=true', submissionData)
+    this.http.post('http://localhost:8080/api/judge0/executeAsync/testcase', submissionData)
       .subscribe((response: any) => {
-        this.output = response.stdout || response.stderr || 'Error: No output received.';
+        this.output = response || 'No output received.';
+      }, error => {
+        this.output = 'Execution Error: ' + error.message;
+      });
+  }
+
+  // Function to validate code against test cases
+  validateTestCases() {
+    const testCases = [
+      { input: '3 5', expectedOutput: '8\n' }, // Example test case
+      { input: '10 20', expectedOutput: '30\n' }
+    ];
+
+    const submissionData = {
+      submission: {
+        sourceCode: this.code,
+        languageId: this.selectedLanguage
+      },
+      testCases: testCases
+    };
+
+    this.http.post('http://localhost:8080/api/judge0/evaluateAsync', submissionData)
+      .subscribe((response: any) => {
+        this.testCaseResult = JSON.stringify(response, null, 2);
+      }, error => {
+        this.testCaseResult = 'Validation Error: ' + error.message;
       });
   }
 }
