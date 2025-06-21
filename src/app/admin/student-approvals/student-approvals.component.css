@@ -1,0 +1,39 @@
+.container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .search-box {
+    width: 50%;
+    padding: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .table th {
+    cursor: pointer;
+    background-color: #f4f4f4;
+  }
+  
+  .approve-btn {
+    padding: 5px 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .approve-btn:hover {
+    background-color: darkgreen;
+  }
+  

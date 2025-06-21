@@ -25,10 +25,13 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": [    "node_modules/ace-builds/src-min/ace.js",
-            "node_modules/ace-builds/src-min/ext-language_tools.js"]
+            "node_modules/ace-builds/src-min/ext-language_tools.js"],
+            "allowedCommonJsDependencies": ["face-api.js"]
+
           },
           "configurations": {
             "production": {
@@ -88,6 +91,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []

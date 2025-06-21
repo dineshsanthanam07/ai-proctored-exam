@@ -1,0 +1,99 @@
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .empty-msg {
+    font-size: 18px;
+    color: #888;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .card {
+    background: linear-gradient(135deg, #f0f4ff, #ffffff);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  h3 {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .approve-btn {
+    background: #28a745;
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .approve-btn:hover {
+    background: #218838;
+  }
+  
+  .reject-btn {
+    background: #dc3545;
+    color: #fff;
+  }
+  
+  .reject-btn:hover {
+    background: #c82333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .card {
+      padding: 15px;
+    }
+  
+    button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  

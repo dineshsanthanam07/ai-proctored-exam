@@ -1,0 +1,19 @@
+<div class="login-container">
+    <h2>Student Login</h2>
+    
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+      <label>Roll Number</label>
+      <input type="text" formControlName="roll_no" placeholder="Enter your roll number">
+      
+      <label>Password</label>
+      <input type="password" formControlName="password" placeholder="Enter your password">
+      
+      <button type="submit" [disabled]="!loginForm.valid">Login</button>
+      
+      <p>Don't have an account? 
+        <a (click)="navigateToRegister()">Register here</a>
+      </p>
+    </form>
+  </div>
+  

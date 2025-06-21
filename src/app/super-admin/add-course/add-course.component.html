@@ -1,22 +1,28 @@
 <div class="add-course-container">
   <h2 class="title">Add New Course</h2>
-  <form class="course-form">
+
+  <!-- 📝 Form Submission Calls addCourse() -->
+  <form class="course-form" (submit)="addCourse()">
     <div class="form-group">
-      <input type="text" id="courseId" required />
+      <input type="text" id="courseId" [(ngModel)]="newCourse.courseId" name="courseId" required />
       <label for="courseId">Course ID</label>
     </div>
+
     <div class="form-group">
-      <input type="text" id="courseName" required />
+      <input type="text" id="courseName" [(ngModel)]="newCourse.name" name="courseName" required />
       <label for="courseName">Course Name</label>
     </div>
+
     <div class="form-group">
-      <select id="facultySelect" required>
+      <select id="facultySelect" [(ngModel)]="newCourse.facultyId" name="facultyId" required>
         <option value="" disabled selected>Select Faculty</option>
         <option *ngFor="let faculty of faculties" [value]="faculty.id">
           {{ faculty.name }}
         </option>
       </select>
     </div>
+
+    <!-- Submit Button Triggers Form Submission -->
     <button type="submit" class="add-btn">Add Course</button>
   </form>
 </div>

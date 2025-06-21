@@ -1,28 +1,59 @@
-<div class="coding-container">
-  <div class="question-section">
-    <h2>Problem Statement</h2>
-    <p>Write a Python program that takes two integers as input and prints their sum.</p>
+<div class="test-container">
+  <!-- ✅ Test Details Section -->
+  <div *ngIf="testDetails; else loading" class="test-info">
+    <h2>{{ testDetails.title }}</h2>
+    <p><strong>Duration:</strong> {{ testDetails.duration }} minutes</p>
+    <p><strong>Time Left:</strong> {{ timeLeft }} seconds</p>
   </div>
 
-  <div class="editor-section">
-    <select [(ngModel)]="selectedLanguage">
-      <option value="71">Python</option>
-      <option value="63">JavaScript</option>
-      <option value="62">Java</option>
-      <option value="54">C++</option>
-    </select>
+  <!-- 🔄 Loading Placeholder -->
+  <ng-template #loading>
+    <p class="loading">Loading test details...</p>
+  </ng-template>
 
+  <!-- 📝 Questions Section -->
+  <div class="question-section">
+    <h2>Test Questions</h2>
+
+    <div *ngIf="questions.length > 0; else noQuestions">
+      <div *ngFor="let question of questions" class="question-card">
+        <h3>{{ question.title }}</h3>
+        <p>{{ question.description }}</p>
+      </div>
+    </div>
+
+    <ng-template #noQuestions>
+      <p class="no-questions">No questions available for this test.</p>
+    </ng-template>
+  </div>
+
+  <!-- 🖥️ Code Editor Section -->
+  <div class="editor-section">
+    <h2>Code Editor</h2>
     <div #editor class="code-editor"></div>
 
-    <textarea [(ngModel)]="customInput" placeholder="Enter custom input here..." rows="3"></textarea>
+    <!-- 🎯 Language Selection -->
+    <label for="language">Select Language:</label>
+    <select [(ngModel)]="selectedLanguage" (change)="updateEditorMode(selectedLanguage)">
+      <option *ngFor="let lang of languages" [value]="lang.id">{{ lang.name }}</option>
+    </select>
 
-    <button (click)="executeCode()">Run with Custom Input</button>
-    <button (click)="validateTestCases()">Submit & Validate Test Cases</button>
+    <!-- 🎯 Custom Input -->
+    <textarea [(ngModel)]="customInput" class="custom-input" placeholder="Enter custom input..." rows="5"></textarea>
 
-    <h3>Output:</h3>
-    <pre>{{ output }}</pre>
 
-    <h3>Test Case Result:</h3>
-    <pre>{{ testCaseResult }}</pre>
+    <!-- 🎯 Output Section -->
+    <div class="output-container">
+      <h3>Output</h3>
+      <pre class="output">{{ output || 'No output yet.' }}</pre>
+    </div>
+
+    <!-- 🎯 Buttons -->
+    <div class="button-container">
+      <button (click)="executeCode()" class="execute-btn">Run Code</button>
+      <button (click)="submitCode()" class="submit-btn">Submit Code</button>
+    </div>
   </div>
 </div>
+<video #videoElement autoplay width="200" height="150" style="border: 2px solid red;"></video>
+

@@ -1,0 +1,65 @@
+<div class="container">
+    <h2>Create New Test</h2>
+  
+    <form (submit)="createTest()">
+      <div class="form-group">
+        <label>Select Course:</label>
+        <select class="form-control" [(ngModel)]="selectedCourseId" name="courseId" required>
+          <option *ngFor="let course of courses" [value]="course.id">{{ course.name }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label>Test Title:</label>
+        <input type="text" class="form-control" [(ngModel)]="test.title" name="title" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea class="form-control" [(ngModel)]="test.description" name="description" required></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label>Language:</label>
+        <input type="text" class="form-control" [(ngModel)]="test.language" name="language" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Duration (Minutes):</label>
+        <input type="number" class="form-control" [(ngModel)]="test.duration" name="duration" required />
+      </div>
+  
+      <button type="button" class="btn btn-primary" (click)="createTest()">Create Test</button>
+    </form>
+  
+    <hr />
+  
+    <div *ngIf="testCreated">
+      <h3>Add Questions to Test</h3>
+  
+      <form (submit)="addQuestion()">
+        <div class="form-group">
+          <label>Question Title:</label>
+          <input type="text" class="form-control" [(ngModel)]="newQuestion.title" name="title" required />
+        </div>
+  
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea class="form-control" [(ngModel)]="newQuestion.description" name="description" required></textarea>
+        </div>
+  
+        <div class="form-group">
+          <label>Language:</label>
+          <input type="text" class="form-control" [(ngModel)]="newQuestion.language" name="language" required />
+        </div>
+  
+        <button type="button" class="btn btn-success" (click)="addQuestion()">Add Question</button>
+      </form>
+  
+      <h4>Questions Added:</h4>
+      <ul>
+        <li *ngFor="let question of questions">{{ question.title }}</li>
+      </ul>
+    </div>
+  </div>
+  

@@ -1,0 +1,38 @@
+<div class="student-container">
+  <!-- Sidebar (Hidden for coding-test component) -->
+  <div class="sidebar" *ngIf="!hideSidebar">
+    <h2 class="logo">Student Panel</h2>
+    <ul>
+      <li>
+        <a routerLink="/student/dashboard" routerLinkActive="active">
+          <i class="fas fa-home"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a routerLink="/student/courses" routerLinkActive="active">
+          <i class="fas fa-book"></i> My Courses
+        </a>
+      </li>
+      <li>
+        <a routerLink="/student/tests" routerLinkActive="active">
+          <i class="fas fa-file-alt"></i> Tests
+        </a>
+      </li>
+      <li>
+        <a routerLink="/student/profile" routerLinkActive="active">
+          <i class="fas fa-user"></i> Profile
+        </a>
+      </li>
+      <li>
+        <a routerLink="/student/logout">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Content Area -->
+  <div class="student-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

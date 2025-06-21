@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Enrollment Requests</h2>
+  
+    <div *ngIf="pendingEnrollments.length === 0" class="empty-msg">
+      No pending enrollment requests.
+    </div>
+  
+    <div *ngFor="let enrollment of pendingEnrollments" class="card">
+      <h3>{{ enrollment.studentName }}</h3>
+      <p>Roll No: {{ enrollment.rollno }}</p>
+      <p>Course: {{ enrollment.courseName }}</p>
+  
+      <button (click)="approveEnrollment(enrollment.id)" class="approve-btn">Approve</button>
+      <button (click)="rejectEnrollment(enrollment.id)" class="reject-btn">Reject</button>
+    </div>
+  </div>
+  

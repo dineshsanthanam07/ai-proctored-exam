@@ -1,0 +1,23 @@
+<div class="test-container">
+    <h2 class="title">Available Tests</h2>
+    <div *ngIf="availableTests.length === 0" class="empty-msg">No tests available.</div>
+  
+    <div class="test-list">
+      <div *ngFor="let test of availableTests" class="test-card">
+        <h3>{{ test.title }}</h3>
+        <p>Course: {{ test.course.name }}</p>
+        <p>Duration:{{test.duration}}</p>
+        <button (click)="startTest(test)" class="start-btn">Start Test</button>
+      </div>
+    </div>
+  
+    <div *ngIf="selectedTest" class="test-section">
+      <h2 class="test-title">{{ selectedTest.title }}</h2>
+      <div class="question" *ngFor="let question of selectedTest.questions">
+        <p>{{ question.text }}</p>
+        <input type="text" [(ngModel)]="answers[question.questionId]" placeholder="Your answer" />
+      </div>
+      <button (click)="submitTest()" class="submit-btn">Submit Test</button>
+    </div>
+  </div>
+  

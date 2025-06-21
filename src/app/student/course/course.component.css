@@ -1,0 +1,85 @@
+.course-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.course-list, .enrolled-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.course-card, .enrolled-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  width: 250px;
+  text-align: center;
+}
+
+.course-card:hover, .enrolled-card:hover {
+  transform: scale(1.05);
+}
+
+.course-id {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.enroll-btn {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.enroll-btn:hover {
+  background: linear-gradient(135deg, #43A047, #1B5E20);
+}
+
+.enroll-btn:disabled {
+  background: #ddd;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.enrolled {
+  background: #4CAF50;
+  color: white;
+}
+
+.pending {
+  background: #FF9800;
+  color: white;
+}
+
+.empty-msg {
+  text-align: center;
+  font-style: italic;
+  color: #999;
+  margin-top: 10px;
+}

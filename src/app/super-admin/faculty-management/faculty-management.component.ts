@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FacultyService } from 'src/app/services/faculty.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-faculty-management',
@@ -9,22 +10,26 @@ import { FacultyService } from 'src/app/services/faculty.service';
 export class FacultyManagementComponent implements OnInit {
   faculties: any[] = [];
   searchQuery: string = '';
-  selectedFaculty: any = null; // For editing
 
-  constructor(private facultyService: FacultyService) {}
+  constructor(private facultyService: FacultyService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.loadFaculties();
   }
 
-  // 🔄 Load all faculties
+  // 🔄 Load all faculty members from backend
   loadFaculties(): void {
-    this.facultyService.getAllFaculty().subscribe((data) => {
-      this.faculties = data;
-    });
+    this.facultyService.getAllFaculty().subscribe(
+      (data) => {
+        this.faculties = data;
+      },
+      (error) => {
+        this.showNotification('⚠ Error fetching faculty data!', true);
+      }
+    );
   }
 
-  // 🔍 Filter faculty based on search and approval status
+  // 🔍 Filter and sort faculty list (Pending approvals on top)
   filteredFaculties(): any[] {
     return this.faculties
       .filter((faculty) => {
@@ -42,37 +47,39 @@ export class FacultyManagementComponent implements OnInit {
       });
   }
 
-  // ✅ Approve a faculty
+  // ✅ Approve faculty and refresh list
   approveFaculty(facultyId: number): void {
-    this.facultyService.approveFaculty(facultyId).subscribe(() => {
-      this.loadFaculties();
-    });
-  }
-
-  // ❌ Delete a faculty
-  deleteFaculty(facultyId: number): void {
-    this.facultyService.deleteFaculty(facultyId).subscribe(() => {
-      this.loadFaculties();
-    });
-  }
-
-  // ✏️ Edit a faculty
-  editFaculty(faculty: any): void {
-    this.selectedFaculty = { ...faculty }; // Clone the faculty details for editing
-  }
-
-  // 💾 Save edited faculty
-  saveEditedFaculty(): void {
-    if (this.selectedFaculty) {
-      this.facultyService.updateFaculty(this.selectedFaculty.id, this.selectedFaculty).subscribe(() => {
+    this.facultyService.approveFaculty(facultyId).subscribe(
+      (response) => {
         this.loadFaculties();
-        this.selectedFaculty = null; // Reset the form
-      });
-    }
+        this.showNotification(response.message || '✅ Faculty approved successfully!');
+      },
+      (error) => {
+        this.showNotification('⚠ Failed to approve faculty!', true);
+      }
+    );
   }
 
-  // ❌ Cancel editing
-  cancelEdit(): void {
-    this.selectedFaculty = null;
+  // ❌ Delete faculty and refresh list
+  deleteFaculty(facultyId: number): void {
+    this.facultyService.deleteFaculty(facultyId).subscribe(
+      (response) => {
+        this.loadFaculties();
+        this.showNotification(response.message || '❌ Faculty deleted successfully!');
+      },
+      (error) => {
+        this.showNotification('⚠ Failed to delete faculty!', true);
+      }
+    );
+  }
+
+  // 🎉 Show a snackbar notification
+  private showNotification(message: string, isError: boolean = false): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      panelClass: isError ? 'error-snackbar' : 'success-snackbar',
+    });
   }
 }

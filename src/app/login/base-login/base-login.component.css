@@ -1,0 +1,55 @@
+.container {
+    text-align: center;
+    padding: 50px;
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 100px auto;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .role-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s, box-shadow 0.3s;
+  }
+  
+  .super-admin-btn {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+  }
+  
+  .admin-btn {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  }
+  
+  .student-btn {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+  }
+  
+  .role-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  

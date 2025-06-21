@@ -1,0 +1,24 @@
+<div class="login-container">
+    <h2 class="title">Admin Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="input-group">
+        <input formControlName="username" placeholder=" " required />
+        <label>Username</label>
+      </div>
+  
+      <div class="input-group">
+        <input formControlName="password" type="password" placeholder=" " required />
+        <label>Password</label>
+      </div>
+  
+      <button type="submit" class="login-btn" [disabled]="loginForm.invalid">
+        Login
+      </button>
+    </form>
+  
+    <p class="register-link">
+      Don't have an account?
+      <a routerLink="/admin/register">Register Here</a>
+    </p>
+  </div>
+  

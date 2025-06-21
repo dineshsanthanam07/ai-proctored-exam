@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Approve Students</h2>
+  
+    <input type="text" [(ngModel)]="searchText" placeholder="Search by Name/Roll No" class="search-box" />
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th (click)="sort('rollNo')">Roll No</th>
+          <th (click)="sort('name')">Name</th>
+          <th>Department</th>
+          <th>Branch</th>
+          <th>Batch</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of filteredStudents()">
+          <td>{{ student.rollNo }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.department }}</td>
+          <td>{{ student.branch }}</td>
+          <td>{{ student.batch }}</td>
+          <td>
+            <button (click)="approveStudent(student.rollNo)" class="approve-btn">Approve</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

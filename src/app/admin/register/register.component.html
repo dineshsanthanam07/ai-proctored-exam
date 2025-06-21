@@ -1,0 +1,25 @@
+<div class="register-container">
+    <h2>Faculty Registration</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <input formControlName="name" placeholder="Full Name" />
+      <input formControlName="username" placeholder="Username" />
+      <input formControlName="password" type="password" placeholder="Password" />
+      <input formControlName="department" placeholder="Department" />
+      <select formControlName="designation">
+        <option value="" disabled selected>Select Designation</option>
+        <option value="TEACHING_FELLOW">TEACHING FELLOW</option>
+        <option value="PROFESSOR">PROFESSOR</option>
+        <option value="ASSISTANT_PROFESSOR">ASSISTANT PROFESSOR</option>
+        <option value="ASSOCIATE_PROFESSOR">ASSOCIATE PROFESSOR</option>
+      </select>
+      
+      <input formControlName="email" type="email" placeholder="Email" />
+  
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    </form>
+  
+    <div *ngIf="registrationSuccess" class="success-message">
+      Registration submitted successfully! Awaiting approval.
+    </div>
+  </div>
+  

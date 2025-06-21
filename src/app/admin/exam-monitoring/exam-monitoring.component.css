@@ -1,0 +1,12 @@
+.screen-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  video {
+    width: 30%;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  

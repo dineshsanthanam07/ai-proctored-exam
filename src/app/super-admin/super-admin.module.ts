@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddCourseComponent } from './add-course/add-course.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -24,10 +26,12 @@ import { AddCourseComponent } from './add-course/add-course.component';
     AddCourseComponent
   ],
   imports: [
+    MatSnackBarModule,
     CommonModule,
     FormsModule,
     SuperAdminRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ]
 })
 export class SuperAdminModule { }

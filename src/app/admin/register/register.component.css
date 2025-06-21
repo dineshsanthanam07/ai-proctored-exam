@@ -1,0 +1,62 @@
+.register-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input, select {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(240, 240, 240, 0.8);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(100, 149, 237, 0.6);
+  }
+  
+  button {
+    padding: 12px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+  }
+  
+  .success-message {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    background: #d4edda;
+    color: #155724;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(72, 180, 97, 0.2);
+  }
+  

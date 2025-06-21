@@ -1,31 +1,124 @@
+/* 🔍 Search Bar Styling */
 .search-container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
 .search-bar {
   width: 50%;
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
 }
 
+.search-bar:focus {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* 📋 Card Container */
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
-  padding: 20px;
+  padding: 0 20px;
 }
 
+/* 🃏 Faculty Card */
 .faculty-card {
-  background: white;
-  border-radius: 20px;
+  background: #ffffff;
   padding: 20px;
-  box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
-  transition: transform 0.3s ease;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .faculty-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 👨‍🏫 Faculty Info */
+.faculty-name {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.faculty-username {
+  color: #888;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.faculty-details {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.faculty-details li {
+  margin: 5px 0;
+}
+
+/* 🎯 Status Styling */
+.status-approved {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+/* 🔘 Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-approve {
+  background: linear-gradient(135deg, #00c853, #64dd17);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-approve:hover {
+  background: linear-gradient(135deg, #64dd17, #00c853);
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #d50000, #ff1744);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #ff1744, #d50000);
+}
+/* Snackbar Customization */
+.mat-snack-bar-container {
+  background: linear-gradient(135deg, #4caf50, #81c784); /* Green gradient */
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mat-snack-bar-container .mat-simple-snackbar-action {
+  color: #ffeb3b; /* Highlight close button */
 }

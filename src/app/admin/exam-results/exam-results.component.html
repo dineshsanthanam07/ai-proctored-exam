@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="card shadow-lg border-0 rounded-4 p-4 bg-white">
+    <h2 class="text-center mb-4 text-gradient">Exam Results</h2>
+
+    <!-- Select Test -->
+    <div class="form-group mb-4">
+      <label for="testSelect" class="form-label font-weight-bold">Select a Test:</label>
+      <select
+        id="testSelect"
+        class="form-select custom-select shadow-sm rounded-pill px-4 py-2"
+        [(ngModel)]="selectedTestId"
+        (change)="onTestSelected()"
+      >
+        <option *ngFor="let test of tests" [value]="test.id">
+          {{ test.title }} ({{ test.questions[0]?.language || 'N/A' }})
+        </option>
+      </select>
+    </div>
+
+    <!-- Student Submissions Table -->
+    <div *ngIf="students.length > 0" class="mt-4">
+      <h5 class="mb-3 font-weight-bold text-primary">Students Who Submitted:</h5>
+      <div class="table-responsive">
+        <table class="table table-hover shadow-sm rounded">
+          <thead class="table-dark">
+            <tr>
+              <th>Student ID</th>
+              <th>Roll No</th>
+              <th>Submitted At</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of students" class="align-middle">
+              <td>{{ student.studentId }}</td>
+              <td>{{ student.studentId }}</td>
+              <td>Not Available</td>
+              <td>
+                <button
+                  class="btn btn-gradient btn-sm shadow-sm"
+                  (click)="onViewSubmission(student)"
+                >
+                  <i class="bi bi-eye-fill me-1"></i> View
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="course-management-container">
+  <h2>Assigned Courses</h2>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Course Code</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of assignedCourses">
+        <td>{{ course.name }}</td>
+        <td>{{ course.courseId }}</td>
+        <td>
+          <button (click)="openStudentModal(course)" class="view-btn">View Students</button>
+          <button (click)="viewTests(course)" class="test-btn">View Tests</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Student List Modal -->
+<div class="modal fade" id="studentModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enrolled Students</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="students.length > 0; else noStudents" class="student-container">
+          <div class="student-card" *ngFor="let student of students">
+            <div class="student-avatar">
+              <span>{{ student.name.charAt(0) }}</span>
+            </div>
+            <div class="student-details">
+              <h5>{{ student.name }}</h5>
+              <p>Roll No: <strong>{{ student.rollNo }}</strong></p>
+            </div>
+          </div>
+        </div>
+        <ng-template #noStudents>
+          <p class="no-students-msg">No students enrolled yet.</p>
+        </ng-template>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

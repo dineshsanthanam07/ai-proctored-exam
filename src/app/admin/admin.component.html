@@ -1,0 +1,37 @@
+<div class="admin-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a routerLink="/admin/dashboard">📊 Dashboard</a></li>
+      <li><a routerLink="/admin/courses">📚 My Courses</a></li>
+      <li><a routerLink="/admin/student-approvals">👨‍🎓 Approve Students</a></li>
+      <li><a routerLink="/admin/enrollment-requests">✅ Enrollment Requests</a></li>
+      <li><a routerLink="/admin/create-exam">📝 Exam Management</a></li>
+      <li><a routerLink="/admin/exam-monitoring">🎥 Live Monitoring</a></li>
+      <li><a routerLink="/admin/results">📜 View Results</a></li>
+      <li><a routerLink="/admin/malpractice-data">🚨 Malpractice Reports</a></li>
+      <li><a (click)="logout()">🚪 Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-title">
+        <h3>AI-Enabled Virtual Lab</h3>
+      </div>
+      <div class="admin-info">
+        <h2>Welcome, {{ adminName }}</h2>
+        <p><strong>Department:</strong> {{ adminDepartment }}</p>
+        <p><strong>Designation:</strong> {{ adminDesignation }}</p>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

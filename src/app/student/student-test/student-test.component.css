@@ -1,0 +1,133 @@
+.test-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.empty-msg {
+    font-size: 18px;
+    color: #777;
+    font-style: italic;
+}
+
+.test-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.test-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 250px;
+    text-align: center;
+}
+
+.test-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.start-btn {
+    background: linear-gradient(135deg, #2b5876, #4e4376);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.start-btn:hover {
+    background: linear-gradient(135deg, #4e4376, #2b5876);
+}
+
+.test-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.test-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.question {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 80%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input:focus {
+    border-color: #2b5876;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    margin-top: 15px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,57 @@
+<div class="submission-container">
+  <!-- 👨‍🎓 Student Info -->
+  <div class="card">
+    <h2>Student Information</h2>
+    <p><strong>Student ID:</strong> {{ submission?.studentId }}</p>
+  </div>
+
+  <!-- 📄 Test Info -->
+  <div class="card">
+    <h2>Test Information</h2>
+    <p><strong>Title:</strong> {{ testDetails?.title }}</p>
+    <p><strong>Description:</strong> {{ testDetails?.description }}</p>
+    <p><strong>Duration:</strong> {{ testDetails?.duration }} minutes</p>
+  </div>
+
+  <!-- ❓ Questions -->
+  <div class="card">
+    <h2>Questions</h2>
+    <div *ngIf="questions.length > 0; else noQuestions">
+      <div *ngFor="let question of questions" class="question-block">
+        <h4>{{ question.title }}</h4>
+        <p>{{ question.description }}</p>
+      </div>
+    </div>
+    <ng-template #noQuestions>
+      <p>No questions found for this test.</p>
+    </ng-template>
+  </div>
+
+  <!-- 💻 Code Viewer -->
+  <div class="card">
+    <h2>Submitted Code (Read-only)</h2>
+    <div #editor class="code-editor"></div>
+
+    <!-- 🌐 Language Display -->
+    <label>Language:</label>
+    <select [(ngModel)]="selectedLanguage" disabled>
+      <option *ngFor="let lang of languages" [value]="lang.id">{{ lang.name }}</option>
+    </select>
+
+    <!-- 🧪 Custom Input -->
+    <label for="customInput">Custom Input:</label>
+    <textarea [(ngModel)]="customInput" id="customInput" class="custom-input" rows="5" placeholder="Enter input to test the submitted code"></textarea>
+
+    <!-- 📤 Output -->
+    <div class="output-section">
+      <h3>Output</h3>
+      <pre>{{ output || 'No output yet.' }}</pre>
+    </div>
+
+    <!-- 🧪 Action Buttons -->
+    <div class="button-group">
+      <button (click)="executeCode()" class="run-btn">Run Code</button>
+      <button disabled class="submit-btn">Submit Code</button>
+    </div>
+  </div>
+</div>

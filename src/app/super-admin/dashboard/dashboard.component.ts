@@ -9,7 +9,7 @@ import { SuperAdminService } from 'src/app/services/superadmin.service';
 export class DashboardComponent implements OnInit {
   totalFaculty: number = 0;
   totalStudents: number = 0;
-  pendingappovals:number=0;
+  pendingapprovals:number=0;
   totalCourses: number = 0;
   ongoingExams: number = 0;
 
@@ -24,8 +24,10 @@ export class DashboardComponent implements OnInit {
       (data) => {
         this.totalFaculty = data.totalFaculty;
         this.totalCourses = data.totalCourses;
-        if(data.pendingappovals>0)
-        {this.pendingappovals=data.pendingappovals;}
+        // if(data.pendingappovals>0)
+        {this.pendingapprovals=data.pendingapprovals;}
+        console.log(this.pendingapprovals);
+        console.log(data);
         
 
         // Uncomment below if your backend includes these fields

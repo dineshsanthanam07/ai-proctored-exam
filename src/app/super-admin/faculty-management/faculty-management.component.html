@@ -1,7 +1,7 @@
 <div class="search-container">
   <input
     type="text"
-    placeholder="🔍 Search by name or username..."
+    placeholder="🔍 Search by name, username, or department..."
     [(ngModel)]="searchQuery"
     class="search-bar"
   />
@@ -9,15 +9,37 @@
 
 <div class="card-container">
   <div class="faculty-card" *ngFor="let faculty of filteredFaculties()">
-    <h5 class="faculty-name">{{ faculty.name }}</h5>
+    <h3 class="faculty-name">{{ faculty.name }}</h3>
     <p class="faculty-username">{{ faculty.username }}</p>
     <ul class="faculty-details">
       <li><strong>Email:</strong> {{ faculty.email }}</li>
       <li><strong>Department:</strong> {{ faculty.department }}</li>
       <li><strong>Designation:</strong> {{ faculty.designation }}</li>
+      <!-- <li><strong>status:{{faculty.status}}</strong></li> -->
+      <li>
+        <strong>Status:</strong>
+        <span
+          [ngClass]="{
+            'status-approved': faculty.status === 'APPROVED',
+            'status-pending': faculty.status === 'PENDING_APPROVAL'
+          }"
+        >
+          {{ faculty.status }}
+        </span>
+      </li>
     </ul>
-    <button class="btn btn-danger" (click)="deleteFaculty(faculty.id)">
-      ❌ Delete
-    </button>
+
+    <div class="action-buttons">
+      <button
+        class="btn-approve"
+        *ngIf="faculty.status === 'PENDING_APPROVAL'"
+        (click)="approveFaculty(faculty.userId)"
+      >
+        ✅ Approve
+      </button>
+      <button class="btn-delete" (click)="deleteFaculty(faculty.id)">
+        ❌ Delete
+      </button>
+    </div>
   </div>
 </div>

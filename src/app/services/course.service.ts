@@ -16,7 +16,10 @@ export class CourseService {
       'Content-Type': 'application/json',
     });
   }
-
+  getFacultyId(userId: number): Observable<number> {
+    return this.http.get<number>(`http://localhost:8082/api/admin/courses/faculty-id/${userId}`, { headers: this.getAuthHeaders() });
+  }
+  
   getAllCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(`${this.apiUrl}/all-courses`, { headers: this.getAuthHeaders() });
   }
@@ -30,6 +33,6 @@ export class CourseService {
   }
 
   deleteCourse(courseId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/delete-course/${courseId}`, { headers: this.getAuthHeaders() });
+    return this.http.delete<void>(`${this.apiUrl}/delete/${courseId}`, { headers: this.getAuthHeaders() });
   }
 }
